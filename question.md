@@ -1,0 +1,4 @@
+# Questions
+
+    view-encapsulation meaning?
+    
