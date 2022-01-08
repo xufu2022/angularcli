@@ -120,3 +120,112 @@ Consider if we want routing
     $ ng g --help 
     $ ng g c --help 
     $ ng g s --help 
+
+# Generating Routing Features
+
+Generate a new NgModule with **ng g module <name> <options>**
+
+Define a module and a separate routing module with **--routing**
+
+    $ ng g m sales --routing sales.module.ts & sales-routing.module
+
+## Generating an App with Routing Features
+
+    ng new sales --routing
+
+## Guards
+
+Generate a guard for routes **ng g guard <name>**
+
+    ng g guard auth
+
+Adding Routing Features with the Angular CLI
+
+    ng new sales --routing
+    ng g m admin --routing
+    ng g c admin/users
+
+# Building and Serving
+
+**Builds**
+
+-   Compile the app to an output directory
+-   Build targets determine the output
+-   All builds use bundling
+-   Prod builds add uglification and tree-shaking
+
+
+     ng build --help
+     ng build
+
+## Development Builds
+
+-   Ideal for development
+-   Output to /dist/[your app] folder, by default (see angular.json)
+
+## Exploring the Build Bundles
+
+| File|  Description| 
+| ----------- | ----------- |
+|main.js |App code|
+|polyfills.js |Platform polyfills|
+|styles.s |Styles|
+|vendor.js |Angular and other vendor files|
+
+## Exploring the Source in the Output
+
+    npm install webpack-bundle-analyzer --save-dev
+    ng build --stats-json
+    npx webpack-bundle-analyzer dist/my-app/stats.json
+
+    npm install source-map-explorer --save-dev
+    ng build
+    npx source-map-explorer dist/my-app/main.js
+
+## Comparing Dev and Prod Build Targets
+
+|       | ng build | ng build --prod |
+| ----------- | ----------- | ----------- |
+|Environment| environment.ts| environment.prod.ts|
+|Cache-busting| only images referenced in css |all build files|
+|Source maps| generated|not generated|
+|Extracted CSS| global CSS output to .js |yes, to css file(s)|
+|Uglification| no |yes|
+|Tree-Shaking| no|yes|
+|AOT|no| yes|
+|Bundling| yes| yes|
+
+
+## Common ng build Options
+
+| Options      | Alias | Description |
+| ----------- | ----------- | ----------- |
+|--source-map| |   Generate a source map|
+|--aot| |Ahead of Time compilation|
+|--watch| -w |Watch and rebuild|
+|--prod| -e |Shortcut for prod env and target|
+
+## Serving Angular
+
+-   ng serve --help
+
+Common ng serve Options
+
+| Options      | Alias | Description |
+| ----------- | ----------- | ----------- |
+|--open | -o| Opens in the default browser|
+|--port || Port to listen to when serving|
+|--live-reload || Reload when changes occur|
+|--ssl || Serve using HTTPS|
+|--proxy-config || Proxy configuration file|
+
+## Adding New Capabilities
+
+ng add <package>
+
+
+-   $ ng add @angular/pwa
+-   $ ng add @angular/material
+-   $ ng add @angular/elements
+-   $ ng add @ng-bootstrap/schematics
+
