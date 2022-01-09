@@ -26,21 +26,24 @@ import { Error404Component } from './errors/404.component'
     EventsAppComponent,
     EventsListComponent,
     EventThumbnailComponent,
-    NavBarComponent,
     EventDetailsComponent,
+    NavBarComponent,
     CreateEventComponent,
     Error404Component
   ],
-  providers: [EventService, ToastrService,
+  providers: [
+    EventService, 
+    ToastrService, 
     EventRouteActivator,
     EventListResolver,
-    {
-      provide: 'canDeactivateCreateEvent',
-      useValue: checkDirtyState
-    }],
+    { 
+      provide: 'canDeactivateCreateEvent', 
+      useValue: checkDirtyState 
+    }
+  ],
   bootstrap: [EventsAppComponent]
 })
-export class AppModule { }
+export class AppModule {}
 
 function checkDirtyState(component:CreateEventComponent) {
   if (component.isDirty)

@@ -35,4 +35,4 @@ export class EventThumbnailComponent {
       return {color: '#003300', 'font-weight': 'bold'}
     return {}
   }
-}
+} 

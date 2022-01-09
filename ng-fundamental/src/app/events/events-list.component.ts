@@ -4,8 +4,7 @@ import { ToastrService } from '../common/toastr.service'
 import { ActivatedRoute } from '@angular/router'
 
 @Component({
-  selector: 'events-list',
-  template: `
+ template: `
   <div>
     <h1>Upcoming Angular Events</h1>
     <hr/>
@@ -17,9 +16,8 @@ import { ActivatedRoute } from '@angular/router'
   </div>
   `
 })
-
 export class EventsListComponent implements OnInit {
-  events: any[] = []
+  events:any
 
   constructor(private eventService: EventService, private toastr: ToastrService, private route:ActivatedRoute) {
 
