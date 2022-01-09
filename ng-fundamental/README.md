@@ -39,3 +39,35 @@ npm install toastr --save
           toastr.error(message, title)
         }
       }
+
+ng g c events\event-details -st --inline-style --skip-tests -d
+ng g c events\create-event -st --inline-style --skip-tests --flat -d
+ng g s events\events-list-resolver --skip-tests --flat -d
+ng g s events\events-list-resolver --skip-tests --flat   
+
+
+resolver : 
+
+    { path: 'events', component: EventsListComponent, resolve: {events:EventListResolver} },
+
+mapping to component data events
+
+       this.events = this.route.snapshot.data['events']
+
+routing active link match **{exact:true}**
+
+    <a [routerLink]="['/events']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">All Events</a>
+
+## Lazy Loading :
+
+Dynamic import
+
+    {
+      path: 'user',
+      loadChildren: () => import('./user/user.module')
+        .then(m => m.UserModule)
+    }
+
+Create barrel
+
+  
